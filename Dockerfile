@@ -15,10 +15,7 @@ RUN	curl --silent --location https://rpm.nodesource.com/setup_5.x | bash -
 RUN 	yum -y install nodejs
 
 # Install Common Helper Packages
-RUN     npm install -g \
-            eslint \
-            phantomjs \
-            rimraf
+RUN     npm install -g gulp
 
 VOLUME /var/lib/go-agent
 CMD ["/go-agent-runner"]
