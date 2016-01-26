@@ -1,8 +1,11 @@
 # BringTheDip.com Docker / NodeJS Build Worker Dockerfile
 FROM centos:centos7
 
-# Install OpenJDK 1.8.x
-RUN yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+# Install OpenJDK 1.8.x and which (required to set JAVA_HOME later)
+RUN yum -y install \
+    which \
+    java-1.8.0-openjdk \
+    java-1.8.0-openjdk-devel
 
 # Install the GoCD Agent Base 
 #   1 - Add Repo
