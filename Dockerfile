@@ -5,7 +5,8 @@ FROM centos:centos7
 RUN yum -y install \
     which \
     java-1.8.0-openjdk \
-    java-1.8.0-openjdk-devel
+    java-1.8.0-openjdk-devel \
+    git
 
 # Install the GoCD Agent Base 
 #   1 - Add Repo
