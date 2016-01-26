@@ -4,10 +4,17 @@ FROM centos:centos7
 # Install OpenJDK 1.8.x
 RUN yum -y install java-1.8.0-openjdk 
 
-# Install the GoCD Agent Base
+# Install the GoCD Agent Base 
+#   1 - Add Repo
+#   2 - yum install
+#   3 - Copy agent runner script to path
+#   4 - Switch agent to run as console app
+#   5 - Allow agent script to execute 
 ADD thoughtworks-gocd.repo /etc/yum.repos.d/thoughtworks-gocd.repo
 RUN yum -y install go-agent
 ADD go-agent-runner.sh /go-agent-runner.sh
+RUN sed -i 's/DAEMON=Y/DAEMON=N/' /etc/default/go-agent
+RUN chmod +x /go-agent-runner.sh
 
 # Install NodeJS 5.x Latest RPM Source
 RUN yum install -y gcc-c++ make
@@ -18,4 +25,4 @@ RUN 	yum -y install nodejs
 RUN     npm install -g gulp
 
 VOLUME /var/lib/go-agent
-CMD ["/go-agent-runner"]
+CMD ["/go-agent-runner.sh"]
