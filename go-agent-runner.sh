@@ -26,5 +26,8 @@ if [ -n "$AGENT_RESOURCES" ]; then echo "agent.auto.register.resources=$AGENT_RE
 if [ -n "$AGENT_ENVIRONMENTS" ]; then echo "agent.auto.register.environments=$AGENT_ENVIRONMENTS" >>/var/lib/go-agent/config/autoregister.properties; fi
 if [ -n "$AGENT_NAME" ]; then echo "agent.auto.register.hostname=$AGENT_NAME" >>/var/lib/go-agent/config/autoregister.properties; fi
 
+echo Setting agent sandpit permissions
+chmod +777 -R /var/lib/go-agent
+
 echo Starting agent
 /etc/init.d/go-agent start
