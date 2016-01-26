@@ -18,7 +18,7 @@ RUN yum -y install go-agent
 ADD go-agent-runner.sh /go-agent-runner.sh
 RUN sed -i 's/DAEMON=Y/DAEMON=N/' /etc/default/go-agent
 # Required since docker add leaves permissions unusable.
-RUN chmod +777 -r /var/lib/go-agent
+RUN chmod +777 -R /var/lib/go-agent
 RUN chmod +x /go-agent-runner.sh
 
 # Install NodeJS 5.x Latest RPM Source
