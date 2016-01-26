@@ -10,4 +10,4 @@ Based loosely on https://hub.docker.com/r/gocd/gocd-agent/ but:
  
  Run container with
  
-    docker run -ti --link gocd_server:go-server 1f167657f8eb
+    docker run -ti --link gocd_server:go-server <container-tag-name>
