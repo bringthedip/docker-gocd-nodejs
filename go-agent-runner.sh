@@ -25,5 +25,5 @@ echo "agent.auto.register.key=$AGENT_KEY" >/var/lib/go-agent/config/autoregister
 if [ -n "$AGENT_RESOURCES" ]; then echo "agent.auto.register.resources=$AGENT_RESOURCES" >>/var/lib/go-agent/config/autoregister.properties; fi
 if [ -n "$AGENT_ENVIRONMENTS" ]; then echo "agent.auto.register.environments=$AGENT_ENVIRONMENTS" >>/var/lib/go-agent/config/autoregister.properties; fi
 
-eho Starting agent
-/sbin/setuser go /etc/init.d/go-agent start
+echo Starting agent
+/etc/init.d/go-agent start
