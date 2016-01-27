@@ -30,7 +30,8 @@ RUN 	yum -y install nodejs
 # Install Common Helper Packages
 RUN     npm install -g \
             gulp \
-            freight
+            freight \
+            npm-check-updates
 
 VOLUME /var/lib/go-agent
 CMD ["/go-agent-runner.sh"]
